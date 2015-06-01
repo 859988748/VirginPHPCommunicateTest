@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="currentContext" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,8 +15,87 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFF-8k-zg7">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="MT0-8G-66m" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="byn-40-lOd">
+                                        <rect key="frame" x="0.0" y="570" width="600" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="BBW-GG-pIF"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vr8-de-fu1">
+                                        <rect key="frame" x="540" y="522" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="58B-xN-Vz6"/>
+                                            <constraint firstAttribute="height" constant="30" id="VzX-pZ-aYu"/>
+                                        </constraints>
+                                        <state key="normal" title="图片">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="picBtnCicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="p06-Vw-dcY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keP-cF-9Om">
+                                        <rect key="frame" x="465" y="522" width="34" height="30"/>
+                                        <state key="normal" title="Lock">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="LockBtnClicked:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="f5b-iA-sal"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="byn-40-lOd" secondAttribute="trailing" id="BDP-IJ-QjN"/>
+                                    <constraint firstAttribute="bottom" secondItem="byn-40-lOd" secondAttribute="bottom" id="Mp3-8x-nyS"/>
+                                    <constraint firstItem="Vr8-de-fu1" firstAttribute="leading" secondItem="keP-cF-9Om" secondAttribute="trailing" constant="41" id="V72-dU-lSG"/>
+                                    <constraint firstItem="keP-cF-9Om" firstAttribute="centerY" secondItem="Vr8-de-fu1" secondAttribute="centerY" id="lIh-Xq-TKK"/>
+                                    <constraint firstItem="Vr8-de-fu1" firstAttribute="trailing" secondItem="byn-40-lOd" secondAttribute="trailing" constant="-30" id="sYo-ij-lTr"/>
+                                    <constraint firstItem="byn-40-lOd" firstAttribute="top" secondItem="Vr8-de-fu1" secondAttribute="bottom" constant="18" id="ufc-Nv-jqu"/>
+                                    <constraint firstItem="byn-40-lOd" firstAttribute="top" secondItem="MT0-8G-66m" secondAttribute="top" constant="570" id="yTQ-eP-xIE"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="yTQ-eP-xIE"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PFF-8k-zg7" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="Hzr-jS-dSC"/>
+                            <constraint firstAttribute="centerY" secondItem="MT0-8G-66m" secondAttribute="centerY" id="Kom-Dd-SJ3"/>
+                            <constraint firstItem="MT0-8G-66m" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="Lv2-8a-RI4"/>
+                            <constraint firstItem="MT0-8G-66m" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="UwX-SE-S9m"/>
+                            <constraint firstAttribute="centerX" secondItem="MT0-8G-66m" secondAttribute="centerX" id="f7T-AS-Kh3"/>
+                            <constraint firstAttribute="centerX" secondItem="PFF-8k-zg7" secondAttribute="centerX" id="gjU-4L-V0t"/>
+                            <constraint firstItem="PFF-8k-zg7" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="maO-cM-QP1"/>
+                            <constraint firstItem="PFF-8k-zg7" firstAttribute="leading" secondItem="byn-40-lOd" secondAttribute="leading" id="psA-j7-UdM"/>
+                            <constraint firstItem="PFF-8k-zg7" firstAttribute="bottom" secondItem="byn-40-lOd" secondAttribute="bottom" id="vZJ-1c-2ik"/>
+                            <constraint firstItem="PFF-8k-zg7" firstAttribute="width" secondItem="byn-40-lOd" secondAttribute="width" id="yCz-2q-7tz"/>
+                            <constraint firstAttribute="centerY" secondItem="PFF-8k-zg7" secondAttribute="centerY" id="yQE-Qj-Ifp"/>
+                        </constraints>
                     </view>
+                    <keyCommands/>
+                    <connections>
+                        <outlet property="BottomSpaceForTXAndContaierView" destination="vZJ-1c-2ik" id="F7i-Oa-6vB"/>
+                        <outlet property="InputTextField" destination="byn-40-lOd" id="Fns-lt-fSq"/>
+                        <outlet property="LeadingSpaceForTextFieldAndContainerView" destination="psA-j7-UdM" id="tEN-ux-UVr"/>
+                        <outlet property="ScrollView" destination="MT0-8G-66m" id="UxC-au-WuP"/>
+                        <outlet property="VerticalSpace" destination="yTQ-eP-xIE" id="mxw-9S-0dT"/>
+                        <outlet property="bottonSpaceBtTXAndScroll" destination="Mp3-8x-nyS" id="yOk-EA-Hbu"/>
+                        <outlet property="containerView" destination="PFF-8k-zg7" id="LYa-1H-uSs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
